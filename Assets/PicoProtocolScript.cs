@@ -58,7 +58,7 @@ public class PICOPROTOCOL : MonoBehaviour
     void Start() //En el start del programa inicializa la comunicacion serial con un puerto y un baud rate
     {
         SerialP = new SerialPort();
-        SerialP.PortName = "COM6";
+        SerialP.PortName = "COM9";
         SerialP.BaudRate = 115200;
         SerialP.DtrEnable = true;
         SerialP.Open();
@@ -68,10 +68,34 @@ public class PICOPROTOCOL : MonoBehaviour
 
     void Update() // Si el puerto serial si se abrio y hay mas de o exactamente 4 bytes para leer va a crear byte data va a leer lo que haya en el serial y lo graba en byte
     {
-        
+        if (Input.GetKeyDown(KeyCode.A)) ///Send number 1
+        {
+            byte[] data = { 0x31 };// start
+            SerialP.Write(data, 0, 1);
+            Debug.Log("Sent 1 to pico");
+        }
+        if (Input.GetKeyDown(KeyCode.B)) ///Send number 2
+        {
+            byte[] data = { 0x32 };// start
+            SerialP.Write(data, 0, 1);
+            Debug.Log("Sent 2 to pico");
+        }
+        if (Input.GetKeyDown(KeyCode.C)) ///Send number 3
+        {
+            byte[] data = { 0x33 };// start
+            SerialP.Write(data, 0, 1);
+            Debug.Log("Sent 1 to pico");
+        }
+        if (Input.GetKeyDown(KeyCode.D)) ///Send number 4
+        {
+            byte[] data = { 0x34 };// start
+            SerialP.Write(data, 0, 1);
+            Debug.Log("Sent 4 to pico");
+        }
 
         if (SerialP.IsOpen && SerialP.BytesToRead >= 4) 
         {
+
             byte[] dataPacket = new byte[4];
             SerialP.Read(dataPacket, 0, 4);
 
@@ -85,9 +109,9 @@ public class PICOPROTOCOL : MonoBehaviour
             PresionStatus = pressure;
             HumedadStatus = humidity;
 
-
         }
     }
+
 
 
 

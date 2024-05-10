@@ -1300,9 +1300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c42a6a64977bc458c469be29d38bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VariableA: {fileID: 0}
-  VariableB: {fileID: 0}
-  Temperatura: {fileID: 0}
+  VariableA: {fileID: 2076115860}
+  VariableB: {fileID: 447375741}
+  Temperatura: {fileID: 921802009}
   TemperaturaStatus: 0
   PresionStatus: 0
   HumedadStatus: 0
